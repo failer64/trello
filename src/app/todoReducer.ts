@@ -2,9 +2,6 @@ import { CaseType, Todos } from '../types/types';
 import { Types } from './store';
 
 const initialState = {
-  queueTodos: [] as Todos[],
-  developmentTodos: [] as Todos[],
-  completedTodos: [] as Todos[],
   todos: [] as Todos[],
 };
 
@@ -22,7 +19,7 @@ const todoReducer = (
       return {
         ...state,
         todos: state.todos.map(t =>
-          t.id === action.payload.todo.id ? action.payload.todo : t,
+          t.id === action.payload.id ? action.payload : t,
         ),
       };
     case 'todolist/todo-reducer/CHANGE-TITLE':
@@ -62,7 +59,7 @@ export const actions = {
       payload: { title, id },
     }) as const,
   changeTodo: (todo: Todos) =>
-    ({ type: 'todolist/todo-reducer/CHANGE-TODO', payload: { todo } }) as const,
+    ({ type: 'todolist/todo-reducer/CHANGE-TODO', payload: todo }) as const,
   deleteTodo: (id: number) =>
     ({ type: 'todolist/todo-reducer/DELETE-TODO', payload: id }) as const,
   rerenderApp: (todos: Todos[]) =>

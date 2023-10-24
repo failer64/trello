@@ -29,6 +29,7 @@ module.exports = {
   rules: {
     'prefer-const': 'warn',
     'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'prettier/prettier': ['warn', { endOfLine: 'auto' }],
   },
 };

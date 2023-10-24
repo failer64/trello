@@ -53,6 +53,7 @@ const ChangeTodo: FC<PropsType> = ({ todo, setEditMode }) => {
       // 		subtasks: props.subtasks,
     };
     dispatch(actions.changeTodo(body));
+    //  dispatch(actions.rerenderApp()));
     setEditMode(false);
   };
 
@@ -162,7 +163,7 @@ export default ChangeTodo;
 const Status: FC<PropsStatus> = ({ status, setStatus }) => {
   const handleChange = (value: ChangeEvent<HTMLSelectElement>) => {
     //@ts-ignore
-    setStatus(value);
+    setStatus(value.currentTarget.value);
   };
 
   return (
